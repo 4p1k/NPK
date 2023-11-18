@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Меню на неделю</title>
+    <style>
+      
+      .day {
+            border: 1px solid black;
+            margin: 10px;
+            padding: 10px;
+            display: inline-block;
+            
+        }
+
+      h2  {
+        font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+      }
+      #adidas{
+        background: white;
+        position: relative;
+      }
+      
+      .glava {
+        
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        transition: .3s;
+        top: -1000px;
+        z-index: 1000;
+      }
+      
+      .glava-active{       
+        position: absolute;
+        top: 0;
+        visibility: visible;
+        opacity: 1;
+        transition: .5s;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(255, 255, 255)
+      }
+      
+      .menus-active{
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .btn-active , .nav-active{
+        visibility: hidden;
+      }
+    
+      .DayПонедельник{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    top: -1000px;
+    z-index: 1000;
+}
+.nextday{
+    background-color: pink;
+}
+.DayВторник{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    top: -1000px;
+    z-index: 1000;
+}
+
+.DayСреда{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    top: -1000px;
+    z-index: 1000;
+}
+
+.DayЧетверг{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    top: -1000px;
+    z-index: 1000;
+}
+
+.DayПятница{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    top: -1000px;
+    z-index: 1000;
+}
+
+.DayСуббота{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    top: -1000px;
+    z-index: 1000;
+}
+
+.DayВоскресенье{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    top: -1000px;
+    z-index: 1000;
+}
+
+.DayПонедельник-active{
+    position: absolute;
+    top: 90px;
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(41, 139, 51)
+}
+.DayВторник-active{
+    position: absolute;
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(11, 195, 91)
+}
+.DayСреда-active{
+    position: absolute;
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow
+}
+.DayЧетверг-active{
+    position: absolute;
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: pink
+}
+.DayПятница-active{
+    position: absolute;
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: red
+}
+.DayСуббота-active{
+    position: absolute;
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: blue
+}
+.DayВоскресенье-active{
+    position: absolute;
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: purple
+}
+   
+    </style>
+    <link rel="stylesheet" href="style.css">
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>  </head>
+  
+
+<body>
+  <header>
+
+    <nav class="nav" id="nav-1">
+      <button id="adidas">
+        <i class="fi fi-br-list"></i>
+      </button>
+     </nav>
+     <div class="btn" id="btn-1">
+       <button id="start" class="start" ">Нажми на меня </button>
+     </div>
+  </header> 
+   
+   <div id="glava-1" class="glava">
+    <div class="glava-content">
+      <button id="close" onclick="close()">закрыть</button>
+
+        <h1>Меню на неделю:</h1>
+    
+        <label for="personCount">Количество персон: </label>
+        <select id="personCount">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+    
+        <label for="mealCount">Приемов пищи в день: </label>
+        <select id="mealCount">
+          <option value="3">3</option>
+          <option value="5">4</option>
+        </select>
+    
+        <label for="choseMenu">Выберите меню</label>
+        <select id="choseMenu">
+          <option value="Diet">Деетическое</option>
+          <option value="Regular">Обычное</option>
+        
+        </select>
+        <button class="generate" id="generate" onclick="generateMenus()">Сгенерировать меню</button>
+        
+      </div >
+  
+     
+  
+    </div>
+  
+
+      <div  class="menus" id="menus">
+      </div>
+      
+      </div>
+    </div>
+
+    <script>
+      var daysOfWeek = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
+      var menus = {
+            "Diet": {
+                "breakfast": [
+                    { name: "Каша с фруктами", composition: "Овсянка, молоко, фрукты" },
+                    { name: "Творожные сырники", composition: "Творог, яичный белок, подсластитель" },
+                    { name: "Ленивая овсянка", composition: "Овсяные хлопья, йогурт, банан, мед" },
+                    { name: "Овсяноблин", composition: "Овсяные хлопья, молоко, яйцо, начинка" }
+                ],
+                "lunch": [
+                    { name: "Салат с тунцом", composition: "Тунец, фасоль, помидоры, оливковое масло" },
+                    { name: "Куриный рулет", composition: "Куриное филе, мандарины, грецкие орехи" },
+                    { name: "Уха из сибаса", composition: "Сибас, овощи, специи" },
+                    { name: "Томатный суп", composition: "Морепродукты, овощи, специи" }
+                ],
+                "dinner": [
+                    { name: "Рыба с овощами", composition: "Лосось, брокколи, морковь" },
+                    { name: "Курица с картофелем", composition: "Куриное филе, картофель, специи" },
+                    { name: "Спагетти с чесноком", composition: "Спагетти, чеснок, масло" },
+                    { name: "Дорада в духовке", composition: "Дорада, лимон, базилик, масло" }
+                ],
+                "snack": [
+                    { name: "Фрукты", composition: "Яблоко, банан, груша" },
+                    { name: "Орехи", composition: "Грецкие орехи, миндаль" },
+                    { name: "Йогурт", composition: "Натуральный йогурт, мед, орехи" },
+                    { name: "Зерновые батончики", composition: "Злаки, мед, орехи" }
+                ]
+            },
+            "Regular": {
+                "breakfast": [
+                    { name: "Омлет", composition: "Яйца, молоко, соль, перец" },
+                    { name: "Гречневая каша", composition: "Гречка, вода, соль" },
+                    { name: "Тосты", composition: "Хлеб, масло" },
+                    { name: "Фрукты", composition: "Яблоко, банан, апельсин" }
+                ],
+                "lunch": [
+                    { name: "Салат", composition: "Помидор, огурец, салат, оливковое масло" },
+                    { name: "Паста", composition: "Макароны, томатный соус, сыр" },
+                    { name: "Сэндвич", composition: "Хлеб, ветчина, сыр, майонез" },
+                    { name: "Суп", composition: "Куриный бульон, лапша, овощи" }
+                ],
+                "dinner": [
+                    { name: "Рыба с овощами", composition: "Лосось, брокколи, морковь" },
+                    { name: "Курица с картофелем", composition: "Куринное филе, картофель, специи" },
+                    { name: "Пицца", composition: "Тесто, томатный соус, сыр, грибы, колбаса" },
+                    { name: "Суши", composition: "Рис, лосось, нори, огурец, соевый соус" }
+                ],
+                "snack": [
+                    { name: "Фрукты", composition: "Яблоко, банан, груша" },
+                    { name: "Орехи", composition: "Грецкие орехи, миндаль" },
+                    { name: "Йогурт", composition: "Натуральный йогурт, мед, орехи" },
+                    { name: "Зерновые батончики", composition: "Злаки, мед, орехи" }
+                ]
+            }
+        };
+
+        function getRandomMeal(menuArray, usedMeals) {
+            var availableMeals = menuArray.filter(function (meal) {
+                return !usedMeals[meal.name] || usedMeals[meal.name] < 2;
+            });
+
+            if (availableMeals.length === 0) {
+                return "Исчерпаны варианты";
+            }
+
+            var randomIndex = Math.floor(Math.random() * availableMeals.length);
+            var selectedMeal = availableMeals[randomIndex];
+
+            usedMeals[selectedMeal.name] = (usedMeals[selectedMeal.name] || 0) + 1;
+
+            return selectedMeal;
+        }
+
+        function showComposition(composition) {
+            alert("Состав: " + composition);
+        }
+
+
+
+  // Модальное окно, которое необходимо открыть
+  const glava1 = document.getElementById("glava-1");
+
+  const gnrBTN = document.getElementById("generate");
+  const menu1 = document.getElementById("menus");
+  
+  const nav1 = document.getElementById("nav-1");
+  
+  const btn1 = document.getElementById("btn-1");
+  // Кнопка по которой происходит клик
+  const btnSTR = document.getElementById("start");
+  // Кнопка "закрыть" внутри модального окна
+  const btnCLS = document.getElementById("close");
+  //DayOfWeek
+  
+  
+  
+  gnrBTN.addEventListener('click', () => {
+    menu1.classList.add('menus-active')
+    glava1.classList.remove('glava-active');
+    nav1.classList.remove('nav-active')
+    btn1.classList.remove('btn-active')
+    
+  })
+
+    btnSTR.addEventListener('click', () => {
+      glava1.classList.add('glava-active');
+      nav1.classList.add('nav-active')
+      btn1.classList.add('btn-active')
+      //menu1.classList.remove('menus-active')
+      menu1.innerHTML = "";  
+    })
+  
+    btnCLS.addEventListener('click', () => {
+      glava1.classList.remove('glava-active');
+      nav1.classList.remove('nav-active')
+      btn1.classList.remove('btn-active')
+      
+    })
+      function getRandomMeal(menuArray, usedMeals) {
+        var availableMeals = menuArray.filter(function (meal) {
+          return !usedMeals[meal.name] || usedMeals[meal.name] < 2;
+        });
+
+        if (availableMeals.length === 0) {
+          return "Исчерпаны варианты";
+        }
+
+        var randomIndex = Math.floor(Math.random() * availableMeals.length);
+        var selectedMeal = availableMeals[randomIndex];
+
+        // Увеличиваем счетчик использования
+        usedMeals[selectedMeal.name] = (usedMeals[selectedMeal.name] || 0) + 1;
+
+        return selectedMeal;
+      }
+
+      function showComposition(composition) {
+        alert("Состав: " + composition);
+      }
+
+      function generateMenus() {
+            var personCount = document.getElementById("personCount").value;
+            var mealCount = parseInt(document.getElementById("mealCount").value);
+            var menusContainer = document.getElementById("menus");
+            var choseMenu = document.getElementById("choseMenu").value;
+            var DAYSWK = document.getElementById("DAYS");
+            menusContainer.innerHTML = "";
+
+            var includeSnack = mealCount === 5;
+            var menu = menus[choseMenu];
+
+            for (var i = 0; i < daysOfWeek.length; i++) {
+                var day = daysOfWeek[i];
+                var days = document.createElement("div");
+                days.className = "Day"+day;
+                days.id = "Day"+day ;
+                var dayMenu = document.createElement("div");
+                dayMenu.className = "day-" + day;
+                dayMenu.innerHTML = "<h2>" + day + "</h2>";
+                var nextDAY = document.createElement("button");
+                nextDAY.textContent = "След день";
+                nextDAY.id = "nextday"+day;
+                
+                
+                var usedMeals = {
+                    breakfast: {},
+                    lunch: {},
+                    dinner: {}
+                };
+
+                if (includeSnack) {
+                    usedMeals.snack = {};
+                }
+                var mealTypes = ["breakfast", "lunch", "dinner"];
+        if (includeSnack) mealTypes.push("snack");
+
+        // объект русских названий
+        var russianMealTypes = {
+            "breakfast": "Завтрак",
+            "lunch": "Обед",
+            "dinner": "Ужин",
+            "snack": "Полдник"
+        };
+        
+        for (var j = 0; j < mealTypes.length; j++) {
+            var mealType = mealTypes[j];
+
+            // Получит название из объекта
+            var russianMealType = russianMealTypes[mealType] || mealType;
+
+            var meal = getRandomMeal(menu[mealType], usedMeals[mealType]);
+            var mealBlock = document.createElement("p");
+            mealBlock.innerHTML = "<strong>" + russianMealType + ": </strong>" + meal.name + ' <a href="javascript:void(0);" onclick="showComposition(\'' + meal.composition + '\')">Показать состав</a>';
+            dayMenu.appendChild(mealBlock);
+        }
+            days.appendChild(dayMenu);  
+            days.appendChild(nextDAY);
+          
+          menusContainer.appendChild(days);    
+    }
+    
+    
+    
+
+    const mnd = document.getElementById('DayПонедельник');
+    mnd.classList.add('DayПонедельник-active');
+    
+    const tu = document.getElementById('DayВторник');
+    const wen = document.getElementById('DayСреда');
+    const thu = document.getElementById('DayЧетверг');
+    const fr = document.getElementById('DayПятница');
+    const sat = document.getElementById('DayСуббота');
+    const sun = document.getElementById('DayВоскресенье')
+//переход на вторник
+  const nxtMND = document.getElementById('nextdayПонедельник')
+  if(nxtMND){
+    nxtMND.addEventListener('click', function(){
+      if(nxtMND.click){
+            mnd.classList.remove('DayПонедельник-active');
+            tu.classList.add('DayВторник-active')
+      }
+    })
+  }
+//переход на среду
+  const nxtTUE = document.getElementById('nextdayВторник')
+  if(nxtTUE){
+    nxtTUE.addEventListener('click', function(){
+      if (nxtTUE.click) {
+        tu.classList.remove('DayВторник-active')
+        wen.classList.add('DayСреда-active')
+      }
+    })
+  }
+//переход на четверг
+const nxtWEN = document.getElementById('nextdayСреда')
+if(nxtWEN){
+  nxtWEN.addEventListener('click', function(){
+    if (nxtWEN.click){
+      wen.classList.remove('DayСреда-active')
+      thu.classList.add('DayЧетверг-active')
+    }
+  })
+}
+//переход на пятницу
+const nxtTHU = document.getElementById('nextdayЧетверг')
+if(nxtTHU){
+  nxtTHU.addEventListener('click', function(){
+    if (nxtTHU.click){
+      thu.classList.remove('DayЧетверг-active')
+      fr.classList.add('DayПятница-active')
+    }
+  })
+}
+//переход на субботу
+const nxtFRI = document.getElementById('nextdayПятница')
+if(nxtFRI){
+  nxtFRI.addEventListener('click', function(){
+    if (nxtFRI.click){
+      fr.classList.remove('DayПятница-active')
+      sat.classList.add('DayСуббота-active')
+    }
+  })
+}
+//переход на воскесенье
+const nxtSAT = document.getElementById('nextdayСуббота')
+if(nxtSAT){
+  nxtSAT.addEventListener('click', function(){
+    if (nxtSAT.click){
+      sat.classList.remove('DayСуббота-active')
+      sun.classList.add('DayВоскресенье-active')
+    }
+  })
+}
+
+}
+  </script>
+ 
+  </body>
+</html>
