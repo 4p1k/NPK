@@ -3,21 +3,16 @@
   <head>
     <title>Меню на неделю</title>
     <style>
-      table {
-        border-collapse: collapse;
-        width: 100%;
-      }
+      
+      .day {
+            border: 1px solid black;
+            margin: 10px;
+            padding: 10px;
+            display: inline-block;
+            
+        }
 
-      table, th, td {
-        border: 1px solid black;
-        width: auto;
-      }
-
-      th, td {
-        padding: 10px;
-        text-align: left;
-      }
-      label,th,td,h1{
+      h2  {
         font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
       }
       #adidas{
@@ -26,17 +21,17 @@
       }
       
       .glava {
+        
         position: absolute;
         visibility: hidden;
         opacity: 0;
         transition: .3s;
         top: -1000px;
         z-index: 1000;
-  
       }
       
       .glava-active{       
-        position: fixed;
+        position: absolute;
         top: 0;
         visibility: visible;
         opacity: 1;
@@ -46,30 +41,178 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: rgb(228, 18, 197);
-        
+        background-color: rgb(255, 255, 255)
       }
       
       .menus-active{
         padding-top: 20px;
         display: flex;
         flex-direction: column;
+        align-items: center;
       }
       .btn-active , .nav-active{
         visibility: hidden;
       }
     
-      @media screen and (max-width: 768px) {
-      }
-      @media screen and (max-width: 980px) {
-      }
-      @media screen and (max-width: 768px) {
-      }
-      @media screen and (max-width: 768px) {
-      }
-        
+      .DayПонедельник{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    top: -1000px;
+    z-index: 1000;
+}
+.nextday{
+    background-color: pink;
+}
+.DayВторник{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    top: -1000px;
+    z-index: 1000;
+}
+
+.DayСреда{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    top: -1000px;
+    z-index: 1000;
+}
+
+.DayЧетверг{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    top: -1000px;
+    z-index: 1000;
+}
+
+.DayПятница{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    top: -1000px;
+    z-index: 1000;
+}
+
+.DayСуббота{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    top: -1000px;
+    z-index: 1000;
+}
+
+.DayВоскресенье{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    top: -1000px;
+    z-index: 1000;
+}
+
+.DayПонедельник-active{
+    position: absolute;
+    top: 90px;
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(41, 139, 51)
+}
+.DayВторник-active{
+    position: absolute;
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(11, 195, 91)
+}
+.DayСреда-active{
+    position: absolute;
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow
+}
+.DayЧетверг-active{
+    position: absolute;
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: pink
+}
+.DayПятница-active{
+    position: absolute;
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: red
+}
+.DayСуббота-active{
+    position: absolute;
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: blue
+}
+.DayВоскресенье-active{
+    position: absolute;
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: purple
+}
    
     </style>
+    <link rel="stylesheet" href="style.css">
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>  </head>
   
 
@@ -116,25 +259,23 @@
         <select id="choseMenu">
           <option value="Diet">Деетическое</option>
           <option value="Regular">Обычное</option>
+        
         </select>
-    
         <button class="generate" id="generate" onclick="generateMenus()">Сгенерировать меню</button>
+        
       </div >
   
-      <div id="input-box">
-              <div id="inputs">
-                  <input id ="Height" type="text" placeholder="Ваш рост">
-                  <input id="Weight" type="text" placeholder="Ваш вес">
-                  <button id="BTNINP" onclick="BMI()">Под ваши параметры</button>
-                  <p id="imtonpg"></p>
-              </div>
-              
-      </div>
+     
   
     </div>
-    <div  class="menus" id="menus"></div>
+  
 
-   
+      <div  class="menus" id="menus">
+      </div>
+      
+      </div>
+    </div>
+
     <script>
       var daysOfWeek = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
       var menus = {
@@ -228,6 +369,9 @@
   const btnSTR = document.getElementById("start");
   // Кнопка "закрыть" внутри модального окна
   const btnCLS = document.getElementById("close");
+  //DayOfWeek
+  
+  
   
   gnrBTN.addEventListener('click', () => {
     menu1.classList.add('menus-active')
@@ -235,16 +379,14 @@
     nav1.classList.remove('nav-active')
     btn1.classList.remove('btn-active')
     
-    
   })
 
     btnSTR.addEventListener('click', () => {
       glava1.classList.add('glava-active');
       nav1.classList.add('nav-active')
       btn1.classList.add('btn-active')
-      menu1.classList.remove('menus-unactive')
-      menu1.innerHTML = "";
-      
+      //menu1.classList.remove('menus-active')
+      menu1.innerHTML = "";  
     })
   
     btnCLS.addEventListener('click', () => {
@@ -252,34 +394,7 @@
       nav1.classList.remove('nav-active')
       btn1.classList.remove('btn-active')
       
-      
-      
     })
-
-  
-function BMI() {
-    function calculateBMI(weight, height) {
-    // Рассчитываем ИМТ по формуле: ИМТ = вес (кг) / (рост (м) * рост (м))
-    const bmi = weight / (height * height);
-    return bmi;
-}
-
-const BTNINP = document.getElementById("BTNINP");
-const weightInKg = document.getElementById("Weight").value;//parseFloat(prompt("Введите ваш вес в килограммах:"));
-const heightInCm = document.getElementById("Height").value;//parseFloat(prompt("Введите ваш рост в сантиметрах:"));
-const CONINP = document.getElementById("inputs").value;
-const ConInp = document.getElementById("input-box").value;
-const Textonpg = document.getElementById("imtonpg");
-
-if (isNaN(weightInKg) || isNaN(heightInCm)) {
-    console.log("Пожалуйста, введите корректные числовые значения для веса и роста.");
-} else {
-    // Преобразуем рост из сантиметров в метры
-    const heightInM = heightInCm / 100;
-    const bmi = calculateBMI(weightInKg, heightInM);
-    Textonpg.innerHTML = (`Ваш ИМТ: ${bmi.toFixed(2)}`);
-}
-}
       function getRandomMeal(menuArray, usedMeals) {
         var availableMeals = menuArray.filter(function (meal) {
           return !usedMeals[meal.name] || usedMeals[meal.name] < 2;
@@ -307,6 +422,7 @@ if (isNaN(weightInKg) || isNaN(heightInCm)) {
             var mealCount = parseInt(document.getElementById("mealCount").value);
             var menusContainer = document.getElementById("menus");
             var choseMenu = document.getElementById("choseMenu").value;
+            var DAYSWK = document.getElementById("DAYS");
             menusContainer.innerHTML = "";
 
             var includeSnack = mealCount === 5;
@@ -314,10 +430,17 @@ if (isNaN(weightInKg) || isNaN(heightInCm)) {
 
             for (var i = 0; i < daysOfWeek.length; i++) {
                 var day = daysOfWeek[i];
+                var days = document.createElement("div");
+                days.className = "Day"+day;
+                days.id = "Day"+day ;
                 var dayMenu = document.createElement("div");
-                dayMenu.className = "day - " + day;
+                dayMenu.className = "day-" + day;
                 dayMenu.innerHTML = "<h2>" + day + "</h2>";
-
+                var nextDAY = document.createElement("button");
+                nextDAY.textContent = "След день";
+                nextDAY.id = "nextday"+day;
+                
+                
                 var usedMeals = {
                     breakfast: {},
                     lunch: {},
@@ -337,7 +460,7 @@ if (isNaN(weightInKg) || isNaN(heightInCm)) {
             "dinner": "Ужин",
             "snack": "Полдник"
         };
-
+        
         for (var j = 0; j < mealTypes.length; j++) {
             var mealType = mealTypes[j];
 
@@ -349,9 +472,87 @@ if (isNaN(weightInKg) || isNaN(heightInCm)) {
             mealBlock.innerHTML = "<strong>" + russianMealType + ": </strong>" + meal.name + ' <a href="javascript:void(0);" onclick="showComposition(\'' + meal.composition + '\')">Показать состав</a>';
             dayMenu.appendChild(mealBlock);
         }
-            menusContainer.appendChild(dayMenu);
+            days.appendChild(dayMenu);  
+            days.appendChild(nextDAY);
+          
+          menusContainer.appendChild(days);    
     }
+    
+    
+    
+
+    const mnd = document.getElementById('DayПонедельник');
+    mnd.classList.add('DayПонедельник-active');
+    
+    const tu = document.getElementById('DayВторник');
+    const wen = document.getElementById('DayСреда');
+    const thu = document.getElementById('DayЧетверг');
+    const fr = document.getElementById('DayПятница');
+    const sat = document.getElementById('DayСуббота');
+    const sun = document.getElementById('DayВоскресенье')
+//переход на вторник
+  const nxtMND = document.getElementById('nextdayПонедельник')
+  if(nxtMND){
+    nxtMND.addEventListener('click', function(){
+      if(nxtMND.click){
+            mnd.classList.remove('DayПонедельник-active');
+            tu.classList.add('DayВторник-active')
+      }
+    })
   }
+//переход на среду
+  const nxtTUE = document.getElementById('nextdayВторник')
+  if(nxtTUE){
+    nxtTUE.addEventListener('click', function(){
+      if (nxtTUE.click) {
+        tu.classList.remove('DayВторник-active')
+        wen.classList.add('DayСреда-active')
+      }
+    })
+  }
+//переход на четверг
+const nxtWEN = document.getElementById('nextdayСреда')
+if(nxtWEN){
+  nxtWEN.addEventListener('click', function(){
+    if (nxtWEN.click){
+      wen.classList.remove('DayСреда-active')
+      thu.classList.add('DayЧетверг-active')
+    }
+  })
+}
+//переход на пятницу
+const nxtTHU = document.getElementById('nextdayЧетверг')
+if(nxtTHU){
+  nxtTHU.addEventListener('click', function(){
+    if (nxtTHU.click){
+      thu.classList.remove('DayЧетверг-active')
+      fr.classList.add('DayПятница-active')
+    }
+  })
+}
+//переход на субботу
+const nxtFRI = document.getElementById('nextdayПятница')
+if(nxtFRI){
+  nxtFRI.addEventListener('click', function(){
+    if (nxtFRI.click){
+      fr.classList.remove('DayПятница-active')
+      sat.classList.add('DayСуббота-active')
+    }
+  })
+}
+//переход на воскесенье
+const nxtSAT = document.getElementById('nextdayСуббота')
+if(nxtSAT){
+  nxtSAT.addEventListener('click', function(){
+    if (nxtSAT.click){
+      sat.classList.remove('DayСуббота-active')
+      sun.classList.add('DayВоскресенье-active')
+    }
+  })
+}
+
+}
   </script>
+ 
   </body>
 </html>
